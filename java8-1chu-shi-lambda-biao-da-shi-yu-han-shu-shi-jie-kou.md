@@ -40,11 +40,9 @@ public static void main\(String\[\] args\) {
 
 如果将上段程序中以匿名内部类的方式创建接口实例的代码替换成Lambda表达式后，代码如下
 
+```java
 public class SwingTest {
-
-public static void main\(String\[\] args\) {
-
-```
+public static void main(String[] args) {
 JFrame jFrame = new JFrame\("My JFrame"\);
 
 JButton jButton = new JButton\("My JButton"\);
@@ -62,11 +60,9 @@ jFrame.pack\(\);
 jFrame.setVisible\(true\);
 
 jFrame.setDefaultCloseOperation\(JFrame.EXIT\_ON\_CLOSE\);
+}
+}
 ```
-
-}
-
-}
 
 关注最中间部分代码的变化，由原来的6行代码，现在1行就可以实现了。这就是Lambda表达式的一种简单形式。
 
@@ -157,7 +153,7 @@ public void actionPerformed\(ActionEvent e\) {
 
     System.out.println\("Button Pressed!"\);
 
-} 
+}
 ```
 
 }\);
