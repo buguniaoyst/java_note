@@ -8,4 +8,7 @@
   * [Java8-4-stream api和函数式编程简单应用](java8-4-stream-apihe-han-shu-shi-bian-cheng-jian-dan-ying-yong.md)
   * [Java8-5-Function函数式接口进阶与默认方法详解](java8-5-functionhan-shu-shi-jie-kou-jin-jie-yu-mo-ren-fang-fa-xiang-jie.md)
   * [Java8-6-Predicate接口详解](java8-6-predicatejie-kou-xiang-jie.md)
+  * Java8-7-Optional类详解
+
+
 
