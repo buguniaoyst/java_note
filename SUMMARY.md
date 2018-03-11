@@ -9,4 +9,7 @@
   * [Java8-5-Function函数式接口进阶与默认方法详解](java8-5-functionhan-shu-shi-jie-kou-jin-jie-yu-mo-ren-fang-fa-xiang-jie.md)
   * [Java8-6-Predicate接口详解](java8-6-predicatejie-kou-xiang-jie.md)
   * [Java8-7-Optional类详解](java8-7-optionallei-xiang-jie.md)
+  * Java8-8-方法引用详解
+
+
 
