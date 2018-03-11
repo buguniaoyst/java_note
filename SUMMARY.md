@@ -10,7 +10,5 @@
   * [Java8-6-Predicate接口详解](java8-6-predicatejie-kou-xiang-jie.md)
   * [Java8-7-Optional类详解](java8-7-optionallei-xiang-jie.md)
   * [Java8-8-方法引用详解](java8-8fang-fa-yin-yong-xiang-jie.md)
-  * Java8-9-Stream介绍与操作方式详解
-
-
+  * [Java8-9-Stream介绍与操作方式详解](java8-9-streamjie-shao-yu-cao-zuo-fang-shi-xiang-jie.md)
 
