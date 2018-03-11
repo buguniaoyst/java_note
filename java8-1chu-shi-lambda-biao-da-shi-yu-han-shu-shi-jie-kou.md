@@ -92,11 +92,9 @@ Lambda为Java添加了缺失的函数式编程的特性，使我们能将函数�
 
 如果一个接口中，有且只有一个抽象的方法（Object类中的方法不包括在内），那这个接口就可以被看做是函数式接口。
 
+```java
 @FunctionalInterface
-
 public interface Runnable {
-
-```
 /\*\*
 
  \* When an object implementing interface &lt;code&gt;Runnable&lt;/code&gt; is used
@@ -120,9 +118,8 @@ public interface Runnable {
  \*/
 
 public abstract void run\(\);
-```
-
 }
+```
 
 来看下Runnable接口的声明，在Java8后，Runnable接口多了一个FunctionalInterface注解，表示该接口是一个函数式接口。但是如果我们不添加FunctionalInterface注解的话，如果接口中有且只有一个抽象方法时，编译器也会把该接口当做函数式接口看待。
 
