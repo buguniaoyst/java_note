@@ -2,50 +2,8 @@ Java8被称作Java史上变化最大的一个版本。其中包含很多重要�
 
 Lambda表达式，维基百科上的解释是一种用于表示匿名函数和闭包的运算符，感觉看到这个解释还是觉得很抽象，接下来我们看一个例子
 
-
-
+```java
 public class SwingTest {
-
-    public static void main\(String\[\] args\) {
-
-        JFrame jFrame = new JFrame\("My JFrame"\);
-
-        JButton jButton = new JButton\("My JButton"\);
-
-
-
-        jButton.addActionListener\(new ActionListener\(\) {
-
-            @Override
-
-            public void actionPerformed\(ActionEvent e\) {                
-
-                System.out.println\("Button Pressed!"\);
-
-            } 
-
-        }\); 
-
-        
-
-        jFrame.add\(jButton\); jFrame.pack\(\); 
-
-        jFrame.setVisible\(true\); 
-
-        jFrame.setDefaultCloseOperation\(JFrame.EXIT\_ON\_CLOSE\); 
-
-    }
-
-}
-
-这是一段Swing编程中的代码，给Button绑定一个监听事件，当点击Button时会在控制台输出"Button Pressed!"内容。这里使用了创建了一个匿名内部类的实例来绑定到监听器，这也是以往比较常规的代码组织形式。但是仔细看一下我们会发现，实际上我们真正关注的就是一个ActionEvent类型的参数e和向控制台输出的语句System.out.println\("Button Pressed!"\);。
-
-如果将上段程序中以匿名内部类的方式创建接口实例的代码替换成Lambda表达式后，代码如下
-
-public class SwingTest {
-
-
-
 public static void main\(String\[\] args\) {
 
     JFrame jFrame = new JFrame\("My JFrame"\);
@@ -54,17 +12,57 @@ public static void main\(String\[\] args\) {
 
 
 
-    jButton.addActionListener\(e -&gt; System.out.println\("Button Pressed!"\)\);
+    jButton.addActionListener\(new ActionListener\(\) {
+
+        @Override
+
+        public void actionPerformed\(ActionEvent e\) {                
+
+            System.out.println\("Button Pressed!"\);
+
+        } 
+
+    }\); 
 
 
 
-    jFrame.add\(jButton\);
+    jFrame.add\(jButton\); jFrame.pack\(\); 
 
-    jFrame.pack\(\);
+    jFrame.setVisible\(true\); 
 
-    jFrame.setVisible\(true\);
+    jFrame.setDefaultCloseOperation\(JFrame.EXIT\_ON\_CLOSE\); 
 
-    jFrame.setDefaultCloseOperation\(JFrame.EXIT\_ON\_CLOSE\);
+}
+}
+```
+
+这是一段Swing编程中的代码，给Button绑定一个监听事件，当点击Button时会在控制台输出"Button Pressed!"内容。这里使用了创建了一个匿名内部类的实例来绑定到监听器，这也是以往比较常规的代码组织形式。但是仔细看一下我们会发现，实际上我们真正关注的就是一个ActionEvent类型的参数e和向控制台输出的语句System.out.println\("Button Pressed!"\);。
+
+如果将上段程序中以匿名内部类的方式创建接口实例的代码替换成Lambda表达式后，代码如下
+
+public class SwingTest {
+
+public static void main\(String\[\] args\) {
+
+```
+JFrame jFrame = new JFrame\("My JFrame"\);
+
+JButton jButton = new JButton\("My JButton"\);
+
+
+
+jButton.addActionListener\(e -&gt; System.out.println\("Button Pressed!"\)\);
+
+
+
+jFrame.add\(jButton\);
+
+jFrame.pack\(\);
+
+jFrame.setVisible\(true\);
+
+jFrame.setDefaultCloseOperation\(JFrame.EXIT\_ON\_CLOSE\);
+```
 
 }
 
@@ -75,8 +73,6 @@ public static void main\(String\[\] args\) {
 可以看出Lambda表达式的语法是
 
 \(param1,param2,param3\) -&gt; {
-
-
 
 //todo
 
@@ -100,49 +96,49 @@ Lambda为Java添加了缺失的函数式编程的特性，使我们能将函数�
 
 如果一个接口中，有且只有一个抽象的方法（Object类中的方法不包括在内），那这个接口就可以被看做是函数式接口。
 
-
-
 @FunctionalInterface
 
 public interface Runnable {
 
-    /\*\*
+```
+/\*\*
 
-     \* When an object implementing interface &lt;code&gt;Runnable&lt;/code&gt; is used
+ \* When an object implementing interface &lt;code&gt;Runnable&lt;/code&gt; is used
 
-     \* to create a thread, starting the thread causes the object's
+ \* to create a thread, starting the thread causes the object's
 
-     \* &lt;code&gt;run&lt;/code&gt; method to be called in that separately executing
+ \* &lt;code&gt;run&lt;/code&gt; method to be called in that separately executing
 
-     \* thread.
+ \* thread.
 
-     \* &lt;p&gt;
+ \* &lt;p&gt;
 
-     \* The general contract of the method &lt;code&gt;run&lt;/code&gt; is that it may
+ \* The general contract of the method &lt;code&gt;run&lt;/code&gt; is that it may
 
-     \* take any action whatsoever.
+ \* take any action whatsoever.
 
-     \*
+ \*
 
-     \* @see     java.lang.Thread\#run\(\)
+ \* @see     java.lang.Thread\#run\(\)
 
-     \*/
+ \*/
 
-    public abstract void run\(\);
+public abstract void run\(\);
+```
 
 }
 
 来看下Runnable接口的声明，在Java8后，Runnable接口多了一个FunctionalInterface注解，表示该接口是一个函数式接口。但是如果我们不添加FunctionalInterface注解的话，如果接口中有且只有一个抽象方法时，编译器也会把该接口当做函数式接口看待。
 
-
-
 @FunctionalInterface
 
 public interface MyInterface {
 
-    void test\(\);
+```
+void test\(\);
 
-    String toString\(\);
+String toString\(\);
+```
 
 }
 
@@ -152,39 +148,37 @@ MyInterface这也是一个函数式接口，因为toString\(\)是Object类中的
 
 既然在Java中，Lambda表达式是对象。那么这个对象的类型是什么呢？我们再回顾下SwingTest程序，这里以匿名内部类的方式创建了一个ActionListener接口实例
 
-
-
 jButton.addActionListener\(new ActionListener\(\) {
 
-    @Override
+```
+@Override
 
-    public void actionPerformed\(ActionEvent e\) {                
+public void actionPerformed\(ActionEvent e\) {                
 
-        System.out.println\("Button Pressed!"\);
+    System.out.println\("Button Pressed!"\);
 
-    } 
+} 
+```
 
-}\); 
+}\);
 
 使用Lambda表达式改进后
-
-
 
 jButton.addActionListener\(e -&gt; System.out.println\("Button Pressed!"\)\);
 
 也就是我们使用Lambda表达式创建了一个ActionListener接口的实例，再看下ActionListener接口的定义
 
-
-
 public interface ActionListener extends EventListener {
 
-    /\*\*
+```
+/\*\*
 
-     \* Invoked when an action occurs.
+ \* Invoked when an action occurs.
 
-     \*/
+ \*/
 
-    public void actionPerformed\(ActionEvent e\);
+public void actionPerformed\(ActionEvent e\);
+```
 
 }
 
