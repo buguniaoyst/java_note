@@ -68,11 +68,11 @@ jFrame.setDefaultCloseOperation\(JFrame.EXIT\_ON\_CLOSE\);
 
 可以看出Lambda表达式的语法是
 
-\(param1,param2,param3\) -&gt; {
-
+```java
+(param1,param2,param3) -> {
 //todo
-
 }
+```
 
 这里参数的类型程序可以根据上下文进行推断，但是并不是所有的类型都可以推断出来，此时就需要我们显示的声明参数类型，当只有一个参数时小括号可以省略。当todo部分只有一行代码时，外边的大括号可以省略。如我们上面的示例
 
