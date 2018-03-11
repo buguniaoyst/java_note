@@ -123,17 +123,14 @@ public abstract void run\(\);
 
 来看下Runnable接口的声明，在Java8后，Runnable接口多了一个FunctionalInterface注解，表示该接口是一个函数式接口。但是如果我们不添加FunctionalInterface注解的话，如果接口中有且只有一个抽象方法时，编译器也会把该接口当做函数式接口看待。
 
+```java
 @FunctionalInterface
-
 public interface MyInterface {
-
-```
 void test\(\);
 
 String toString\(\);
-```
-
 }
+```
 
 MyInterface这也是一个函数式接口，因为toString\(\)是Object类中的方法，只是在这里进行了复写，不会增加接口中抽象方法的数量。
 
